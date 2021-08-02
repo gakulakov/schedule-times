@@ -35,7 +35,7 @@ export const MasterCard: FC<MasterCardProps> = ({data}) => {
             </div>
 
             {!modalHidden && <CreateModal closeHandler={(value => setModalHidden(value))} visible={modalHidden} masterData={master} />}
-            {!scheduleHidden && <Schedule closeHandler={() => setScheduleHidden(true)} saveHandler={() => console.log('Hello')} masterName={master.name} />}
+            {!scheduleHidden && <Schedule closeHandler={() => setScheduleHidden(true)} saveHandler={() => setScheduleHidden(true)} masterName={master.name} />}
         </div>
     )
 }
