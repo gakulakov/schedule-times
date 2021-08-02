@@ -28,7 +28,6 @@ export const MasterCard: FC<MasterCardProps> = ({data}) => {
             <p>Номер телефона: +7{master.phoneNumber}</p>
             <p>Профессия: {master.sphere}</p>
             <p>О мастере: {master.description}</p>
-
             <div className={'master-card__editor'}>
                 <EditButton title={'Редактировать'} icon={'bi bi-pencil'} onClick={() => setModalHidden(false)}/>
                 <EditButton title={'Расписание'} icon={'bi bi-calendar-check'} onClick={() => setScheduleHidden(false)}/>
