@@ -35,9 +35,11 @@ export const ScheduleItem: FC<ScheduleItemProps> = ({
 
     useEffect(() => {
         setActive(activeItem)
-        activeHours === value && setActive(true)
-    }, [activeItem, activeHours, value, active])
+    }, [activeItem])
 
+    useEffect(() => {
+        activeHours === value && setActive(prevState => !prevState)
+    }, [activeHours, value])
 
     return (
         <div className={`schedule-item ${active ? 'active' : ''}`} onClick={onClick || activeHandler}/>
