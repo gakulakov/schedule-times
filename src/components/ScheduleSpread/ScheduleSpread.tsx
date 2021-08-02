@@ -1,27 +1,22 @@
 import React, {FC, useEffect} from "react";
 import {useState} from "react";
-import {ScheduleItem} from "../../templates/ScheduleTemps/ScheduleItem";
+import {ScheduleItem} from "../../templates/ScheduleTemps/ScheduleItem/ScheduleItem";
+import {ScheduleMainItem} from "../../templates/ScheduleTemps/ScheduleMainItem/ScheduleMainItem";
 
 
 interface ScheduleSpreadProps {
     day: {} | any,
     hours: [] | any,
-    activeHours: {}
+    saveHandler?: any
 }
 
-export const ScheduleSpread: FC<ScheduleSpreadProps> = ({day, hours, activeHours}) => {
+export const ScheduleSpread: FC<ScheduleSpreadProps> = ({day, hours, saveHandler}) => {
     const [activeWeek, setActiveWeek] = useState<boolean>(false);
     const [currentData, setCurrentData] = useState(day);
+    const date = new Date(day.date)
 
-    useEffect(() => {
-        activeHours !== 0 && setCurrentData((prevState: any) => ({
-            ...prevState,
-            hours: [...prevState.hours.filter((i: number) => i !== activeHours), activeHours]
-        }))
-    }, [activeHours])
 
     const selectHour = (hour: number) => {
-        console.log(currentData.hours)
         setCurrentData((prevState: any) => ({
             ...prevState,
             hours: [...prevState.hours, hour]
@@ -33,18 +28,34 @@ export const ScheduleSpread: FC<ScheduleSpreadProps> = ({day, hours, activeHours
         hours: [...prevState.hours.filter((i: number) => i !== hour)]
     }))
 
+    useEffect(() => {
+        saveHandler(currentData)
+    }, [currentData])
+
+    useEffect(() => {
+        setCurrentData(day)
+    }, [day]);
+
+
+    const hoursGenerate = () => hours.map((i: number) => <ScheduleItem key={i + currentData.date}
+                                                                       currentDay={currentData}
+                                                                       activeItem={activeWeek}
+                                                                       selectHour={selectHour}
+                                                                       deleteHour={deleteHour}
+                                                                       value={i}/>)
+
+
     return (
         <div key={day.date} className={'schedule__vertical'}>
-            {day.date}
-            <ScheduleItem value={day.date} activeItem={activeWeek} onClick={() => {
-                setActiveWeek(!activeWeek)
-                console.log(activeWeek)
-            }}/>
+            <div className={'schedule__date'}>
+                {date.toLocaleString("ru", {weekday: "short", day: "numeric", month: "numeric"})}
+            </div>
+            <ScheduleMainItem activeItem={activeWeek}
+                              onClick={() => {
+                                  setActiveWeek(!activeWeek)
+                              }}/>
             <div className={'schedule__day'}>
-                {hours.map((i: number) => <ScheduleItem key={i} activeItem={activeWeek} activeHours={activeHours}
-                                                        selectHour={selectHour}
-                                                        deleteHour={deleteHour}
-                                                        value={i}/>)}
+                {hoursGenerate()}
             </div>
         </div>
 

@@ -1,6 +1,6 @@
 .schedule {
 
-  padding: 20px;
+  padding: 20px 40px;
 
   &__vertical {
     display: flex;
@@ -14,6 +14,53 @@
     margin-top: 10px;
     display: flex;
     justify-content: flex-end;
+    position: relative;
+
+  }
+
+  &__date {
+    width: 65px;
+  }
+
+  &__day-info {
+    display: flex;
+    justify-content: center;
+    padding-left: 6px;
+    p {
+      padding-left: 4px;
+      font-size: 14px;
+      text-align: right;
+      opacity: 0.8;
+    }
+
+    i {
+      opacity: 0.6;
+    }
+  }
+
+  &__preloader {
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+  }
+
+
+  &__hour-info {
+    display: flex;
+    position: absolute;
+    left: -70px;
+    top: 0;
+    p {
+      padding-right: 4px;
+      font-size: 14px;
+      max-width: 150px;
+      text-align: right;
+      opacity: 0.8;
+    }
+
+    i {
+      opacity: 0.6;
+    }
   }
 
   &__horizontal-item {
@@ -21,5 +68,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  &__btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  &__btn {
+    //border: 1px solid rgba(0, 0, 0, 0.25);
+    background: rgba(79, 72, 166, 0.8);
+    color: #ffffff;
+    padding: 10px;
+    cursor: pointer;
+
+    transition: all ease 0.3s;
+
+    &:hover {
+      opacity: 0.4;
+    }
   }
 }

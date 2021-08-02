@@ -7,6 +7,7 @@ import {CreateModal} from "../../../components/CreateModal/CreateModal";
 import {Schedule} from "../../../components/ Schedule/ Schedule";
 
 
+
 interface MasterCardProps {
     data: IMaster
 }

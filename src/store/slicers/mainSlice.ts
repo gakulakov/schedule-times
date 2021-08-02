@@ -10,11 +10,18 @@ const mainSlice = createSlice({
             sphere: 'Мастер маникюра',
             description: 'Профессионал своего дела',
             id: 'erqdfasdf21341sdadv'
-        }]
+        }],
+        activeHours: []
     },
     reducers: {
         createMaster(state: any, action) {
             state.masters = [...state.masters.filter((i: IMaster) => i.id !== action.payload.id), action.payload]
+        },
+        createActiveHour(state: any, action) {
+            state.activeHours = [...state.activeHours, action.payload]
+        },
+        removeActiveHour(state: any, action) {
+            state.activeHours = state.activeHours.filter((hour: number) => hour !== action.payload)
         }
     }
 })
@@ -22,5 +29,7 @@ const mainSlice = createSlice({
 export default mainSlice.reducer;
 
 export const {
-    createMaster
+    createMaster,
+    createActiveHour,
+    removeActiveHour
 } = mainSlice.actions
