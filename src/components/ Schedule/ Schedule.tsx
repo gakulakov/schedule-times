@@ -70,6 +70,7 @@ export const Schedule: FC<ScheduleProps> = ({masterName, closeHandler, saveHandl
 
         axios.put(url, {dates: [...data]}, {...config}).then(res => {
             saveHandler()
+            console.log(res)
         })
     }
 

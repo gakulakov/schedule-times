@@ -30,6 +30,8 @@ export const ScheduleSpread: FC<ScheduleSpreadProps> = ({day, hours, saveHandler
 
     useEffect(() => {
         saveHandler(currentData)
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentData])
 
     useEffect(() => {

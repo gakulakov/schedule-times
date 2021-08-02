@@ -1,7 +1,7 @@
 import React, {FC, useEffect} from "react";
 import {useState} from "react";
 import './ScheduleItem.scss'
-import { useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {RootState} from "../../../store/rootReducer";
 
 interface ScheduleItemProps {
@@ -47,15 +47,21 @@ export const ScheduleItem: FC<ScheduleItemProps> = ({
         activeHour.filter((hour: number) => hour === value).length
             ? setActive(true)
             : !clickable && setActive(activeItem || false)
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeHour, activeItem])
 
 
     useEffect(() => {
         currentDay.hours.filter((hour: number) => hour === value).length && initializeDays()
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
         active ? selectHour(value) : deleteHour(value)
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [active]);
 
 
