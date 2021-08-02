@@ -1,0 +1,29 @@
+.master-creator {
+  display: flex;
+  align-items: center;
+  &__title {
+    font-size: 24px;
+  }
+
+  &__add-btn {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    color: #4F48A6;
+    cursor: pointer;
+    transition: all ease 0.5s;
+    p {
+      padding-left: 5px;
+      font-size: 18px;
+    }
+    &:hover {
+      transform: scale(0.95);
+    }
+  }
+
+  &__main-block {
+    display: flex;
+    flex-direction: column;
+  }
+
+}

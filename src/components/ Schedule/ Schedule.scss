@@ -1,0 +1,25 @@
+.schedule {
+
+  padding: 20px;
+
+  &__vertical {
+    display: flex;
+  }
+  &__day {
+    display: flex;
+    margin-left: 10px;
+  }
+
+  &__horizontal {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__horizontal-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

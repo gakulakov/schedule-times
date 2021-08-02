@@ -1,0 +1,22 @@
+.toolbar-container {
+  display: flex;
+  padding: 5px;
+  border-right: 1px solid #c4c4c4;
+}
+
+.toolbar-list {
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    display: flex;
+    cursor: pointer;
+    padding-bottom: 10px;
+
+  }
+
+  &__title {
+    font-weight: 500;
+    padding-left: 4px;
+  }
+}

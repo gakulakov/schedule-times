@@ -1,0 +1,8 @@
+.master-card {
+  margin-bottom: 40px;
+  &__editor {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+  }
+}
